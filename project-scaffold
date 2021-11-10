@@ -1,0 +1,45 @@
+struct User {
+    address,
+    isSeller,
+    exists
+}
+
+struct Item {
+    name,
+    hash (ID),
+    price,
+    buyer,
+    seller (address payable)
+}
+
+enum State {
+    ForSale,
+    Sold
+}
+
+constructor {
+    // msg.sender = admin
+}
+
+func addUser {
+    // adds user 
+}
+
+func isSeller {
+    // checks to see if user can receive payment
+}
+
+func addItem {
+    // adds ticket to be sold 
+}
+
+func sellItem {
+    // withdraws money from buyer, transfers money to seller, transfers ticket to buyer
+    // verifies buyer has enough money, refunds excess money back to buyer
+    // verifies buyer address and seller address
+}
+
+
+
+
+

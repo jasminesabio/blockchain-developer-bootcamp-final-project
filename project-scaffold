@@ -1,45 +1,59 @@
-struct User {
-    address,
-    isSeller,
-    exists
+pragma solidity >=0.5.0 <0.6.0;
+
+contract Jaslist {
+
+    struct User {
+        address,
+        isSeller,
+        exists
+    }
+    
+    struct Item {
+        name,
+        hash (ID),
+        price,
+        buyer,
+        seller (address payable)
+    }
+    
+    Item[] items; // dynamic Array of Item struct
+    Item[] public items; // getter method is automatically created; other contracts can read from this array
+    
+    mapping (uint => address) itemToOwner; //maps item to owner
+    mapping (address => uint) ownerItemCount; //maps amount of items an owner has
+
+    enum State {
+        ForSale,
+        Sold
+    }
+    
+    constructor {
+        // msg.sender = admin
+    }
+    
+    func addUser {
+        // adds user 
+    }
+    
+    func isSeller {
+        // checks to see if user can receive payment
+    }
+    
+    func addItem {
+        // adds ticket to be sold 
+    }
+    
+    func sellItem {
+        // withdraws money from buyer, transfers money to seller, transfers ticket to buyer
+        // verifies buyer has enough money, refunds excess money back to buyer
+        // verifies buyer address and seller address
+    }
+    
+    
+    
+    
+    
+    
+
 }
-
-struct Item {
-    name,
-    hash (ID),
-    price,
-    buyer,
-    seller (address payable)
-}
-
-enum State {
-    ForSale,
-    Sold
-}
-
-constructor {
-    // msg.sender = admin
-}
-
-func addUser {
-    // adds user 
-}
-
-func isSeller {
-    // checks to see if user can receive payment
-}
-
-func addItem {
-    // adds ticket to be sold 
-}
-
-func sellItem {
-    // withdraws money from buyer, transfers money to seller, transfers ticket to buyer
-    // verifies buyer has enough money, refunds excess money back to buyer
-    // verifies buyer address and seller address
-}
-
-
-
-
 

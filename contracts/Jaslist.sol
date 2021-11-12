@@ -1,5 +1,7 @@
 pragma solidity >=0.5.16 <0.9.0;
 
+// if implementing ERC721 standard what functions will functions need to be omitted?
+
 contract Jaslist {
 
     // admin can open/close Jaslist; will receive unused eth if closed

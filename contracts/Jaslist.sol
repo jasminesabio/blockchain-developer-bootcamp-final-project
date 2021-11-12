@@ -39,9 +39,9 @@ contract Jaslist {
 
     State public state;
     
-    constructor {
+    constructor() public {
         owner = msg.sender;
-        skuCount = 0;
+        sku = 0;
     }
 
     event LogItemAdded(uint sku);
@@ -90,19 +90,19 @@ contract Jaslist {
     // func isSeller {
     //     // checks to see if user can receive payment
     // }
-    
+
     // why does function need to return true?
-    function addItem(string _name, uint _price) public returns (bool) {
-        items[itemCount] = Item({
+    function addItem(string memory _name, uint _price) public returns (bool) {
+        items[sku] = Item({
             name: _name,
             sku: sku,
             price: _price,
             state: State.ForSale,
             buyer: address(0),
-            seller: msg.sender,
+            seller: msg.sender
         });
 
-        itemCount++;
+        sku++;
         emit LogItemAdded(sku);
         return true;
     }
@@ -125,7 +125,18 @@ contract Jaslist {
         items[sku].state = State.Received;
 
         emit LogItemReceived(sku);
-    }    
+    }
+
+    function fetchItemName(uint _sku) public view returns (string memory name) {
+        name = items[_sku].name;
+        // sku = items[_sku].sku;
+        // price = items[_sku].price;
+        // state = uint(items[_sku].state);
+        // buyer = items[_sku].buyer;
+        // seller = items[_sku].seller;
+        
+        return (name);
+    }
 
 }
 

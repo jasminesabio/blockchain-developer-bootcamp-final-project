@@ -14,22 +14,15 @@ contract('Jaslist', () => {
     });
 
     it('should add item', async () => {
-        await jaslist.addItem("test", "test description", 420);
+        await jaslist.addItem("test", "test description", 1);
         const item = await jaslist.fetchItemName(0); 
-        assert(item === "test", "test description");
+        assert(item === "test");
+    });
+
+    it('should update price', async () => {
+        await jaslist.addItem("test1", "test description1", 1);
+        await jaslist.updateItemPrice(0, 2);
+        const item = await jaslist.fetchItemPrice(0);
+        assert(item === 2);
     });
 });
-
-// contract("Jaslist", accounts => {
-//   it("Should initalize with sku = 0", async () => {
-//     const jaslistInstance = await Jaslist.deployed();
-
-//     // Set value of 89
-//     await jaslistInstance.addItem("test", 2, { from: accounts[0] });
-
-//     // Get stored value
-//     const result = await simpleStorageInstance.get.call();
-
-//     assert.equal(result, true, "The value 89 was not stored.");
-//   });
-// });

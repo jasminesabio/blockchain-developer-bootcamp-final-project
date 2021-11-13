@@ -2,6 +2,7 @@ pragma solidity >=0.5.16 <0.9.0;
 
 // if implementing ERC721 standard what functions will functions need to be omitted?
 // how to remove item?
+// need to declare state arrays?
 
 contract Jaslist {
 
@@ -39,7 +40,8 @@ contract Jaslist {
         ForSale,
         Sold,
         Transferred,
-        Received
+        Received,
+        NotForSale
     }
 
     State public state;
@@ -133,24 +135,36 @@ contract Jaslist {
         emit LogItemReceived(sku);
     }
 
-    function fetchItemName(uint _sku) public view returns (string memory name, string memory description) {
+    function fetchItemName(uint _sku) public view returns (string memory name) {
         name = items[_sku].name;
-        description = items[_sku].description;
+        // description = items[_sku].description;
         // sku = items[_sku].sku;
         // price = items[_sku].price;
         // state = uint(items[_sku].state);
         // buyer = items[_sku].buyer;
         // seller = items[_sku].seller;
         
-        return (name, description);
+        return (name);
     }
 
-    function updatedItemPrice(uint _sku, uint _price) public varifyCaller(items[sku].seller) {
-        itms[_sku].price = _price;
+    function fetchItemPrice(uint _sku) public view returns (uint price) {
+        // name = items[_sku].name;
+        // description = items[_sku].description;
+        // sku = items[_sku].sku;
+        price = items[_sku].price;
+        // state = uint(items[_sku].state);
+        // buyer = items[_sku].buyer;
+        // seller = items[_sku].seller;
+        
+        return (price);
     }
 
-    function removeItem {
+    function updateItemPrice(uint _sku, uint _price) public verifyCaller(items[sku].seller) {
+        items[_sku].price = _price;
+    }
 
+    function itemNotForSale(uint _sku) public {
+        items[_sku].state = State.NotForSale;
     }
 
 }

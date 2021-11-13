@@ -14,9 +14,9 @@ contract('Jaslist', () => {
     });
 
     it('should add item', async () => {
-        await jaslist.addItem("test", 420);
+        await jaslist.addItem("test", "test description", 420);
         const item = await jaslist.fetchItemName(0); 
-        assert(item === "test");
+        assert(item === "test", "test description");
     });
 });
 

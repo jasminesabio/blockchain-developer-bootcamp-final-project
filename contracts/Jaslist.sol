@@ -1,11 +1,13 @@
 pragma solidity >=0.5.16 <0.9.0;
 
 // if implementing ERC721 standard what functions will functions need to be omitted?
+// how to remove item?
 
 contract Jaslist {
 
     // admin can open/close Jaslist; will receive unused eth if closed
     // address public admin;
+
     address owner;
     uint public sku; 
 
@@ -22,6 +24,7 @@ contract Jaslist {
     
     struct Item {
         string name;
+        string description;
         uint sku;
         uint price;
         State state;
@@ -94,9 +97,10 @@ contract Jaslist {
     // }
 
     // why does function need to return true?
-    function addItem(string memory _name, uint _price) public returns (bool) {
+    function addItem(string memory _name, string memory _description, uint _price) public returns (bool) {
         items[sku] = Item({
             name: _name,
+            description: _description,
             sku: sku,
             price: _price,
             state: State.ForSale,
@@ -129,15 +133,24 @@ contract Jaslist {
         emit LogItemReceived(sku);
     }
 
-    function fetchItemName(uint _sku) public view returns (string memory name) {
+    function fetchItemName(uint _sku) public view returns (string memory name, string memory description) {
         name = items[_sku].name;
+        description = items[_sku].description;
         // sku = items[_sku].sku;
         // price = items[_sku].price;
         // state = uint(items[_sku].state);
         // buyer = items[_sku].buyer;
         // seller = items[_sku].seller;
         
-        return (name);
+        return (name, description);
+    }
+
+    function updatedItemPrice(uint _sku, uint _price) public varifyCaller(items[sku].seller) {
+        itms[_sku].price = _price;
+    }
+
+    function removeItem {
+
     }
 
 }

@@ -159,7 +159,7 @@ contract Jaslist {
         return (price);
     }
 
-    function updateItemPrice(uint _sku, uint _price) public verifyCaller(items[sku].seller) {
+    function updateItemPrice(uint _sku, uint _price) public {
         items[_sku].price = _price;
     }
 

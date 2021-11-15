@@ -23,6 +23,7 @@ contract('Jaslist', () => {
         await jaslist.addItem("test1", "test description1", 1);
         await jaslist.updateItemPrice(0, 2);
         const item = await jaslist.fetchItemPrice(0);
-        assert(item === 2);
+        console.log("this is item:", item);
+        assert.equal(item, 2, "Error message.");
     });
 });

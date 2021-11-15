@@ -1,8 +1,10 @@
 const Jaslist = artifacts.require("Jaslist");
 
-contract('Jaslist', () => {
+contract('Jaslist', (accounts) => {
 
     let jaslist = null;
+    const [seller, buyer] = accounts;
+    // const [msg.owner, notOwner] = accounts;
 
     before(async() => {
         jaslist = await Jaslist.deployed();
@@ -20,8 +22,8 @@ contract('Jaslist', () => {
     });
 
     it('should update price', async () => {
-        await jaslist.addItem("test1", "test description1", 1);
-        await jaslist.updateItemPrice(0, 2);
+        await jaslist.addItem("test1", "test description1", 1, { from: seller });
+        await jaslist.updateItemPrice(0, 2, { from: seller });
         const item = await jaslist.fetchItemPrice(0);
         console.log("this is item:", item);
         assert.equal(item, 2, "Error message.");

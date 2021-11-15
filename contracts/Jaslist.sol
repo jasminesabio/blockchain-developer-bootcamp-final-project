@@ -1,5 +1,6 @@
 pragma solidity >=0.5.16 <0.9.0;
 
+// update updateItemPrice to use verifyCaller as modifier
 // if implementing ERC721 standard what functions will functions need to be omitted?
 // how to remove item?
 // need to declare state arrays?
@@ -56,6 +57,11 @@ contract Jaslist {
     event LogItemTransferred(uint sku);
     event LogItemReceived(uint sku);
 
+    modifier isOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+    
     modifier forSale(uint _sku) {
         require(items[_sku].seller != address(0));
         require(items[_sku].state == State.ForSale, "Item is not for sale.");
@@ -115,7 +121,7 @@ contract Jaslist {
         return true;
     }
     
-    function buyItem(uint sku) public payable forSale(sku) paidEnough(items[sku].price) checkValue(sku) {
+    function buyItem(uint _sku) public payable forSale(sku) paidEnough(items[sku].price) checkValue(sku) {
         items[sku].buyer = msg.sender;
         items[sku].state = State.Sold;
         items[sku].seller.transfer(items[sku].price);
@@ -123,13 +129,13 @@ contract Jaslist {
         emit LogItemSold(sku);
     }
 
-    function transferItem(uint sku) public sold(sku) verifyCaller(items[sku].seller) {
+    function transferItem(uint _sku) public sold(sku) verifyCaller(items[sku].seller) {
         items[sku].state = State.Transferred;
 
         emit LogItemTransferred(sku);
     }
 
-    function receiveItem(uint sku) public transferred(sku) verifyCaller(items[sku].buyer) {
+    function receiveItem(uint _sku) public transferred(sku) verifyCaller(items[sku].buyer) {
         items[sku].state = State.Received;
 
         emit LogItemReceived(sku);
@@ -159,7 +165,7 @@ contract Jaslist {
         return (price);
     }
 
-    function updateItemPrice(uint _sku, uint _price) public {
+    function updateItemPrice(uint _sku, uint _price) public isOwner {
         items[_sku].price = _price;
     }
 

@@ -13,7 +13,7 @@ contract Jaslist {
     address owner;
     uint public sku; 
 
-    mapping (uint => Item) items;
+    mapping (uint => Item) public items;
     mapping (uint => address) itemToOwner; //maps item to owner
     // mapping (address => uint) ownerItemCount; //maps amount of items an owner has
     // mapping (address => User) users;
@@ -32,6 +32,7 @@ contract Jaslist {
         State state;
         address payable buyer;
         address payable seller;
+        address owner;
     }
     
     // User[] users;
@@ -113,7 +114,8 @@ contract Jaslist {
             price: _price,
             state: State.ForSale,
             buyer: address(0),
-            seller: msg.sender
+            seller: msg.sender,
+            owner: msg.sender
         });
 
         sku++;
@@ -121,24 +123,24 @@ contract Jaslist {
         return true;
     }
     
-    function buyItem(uint _sku) public payable forSale(sku) paidEnough(items[sku].price) checkValue(sku) {
-        items[sku].buyer = msg.sender;
-        items[sku].state = State.Sold;
-        items[sku].seller.transfer(items[sku].price);
+    function buyItem(uint _sku) public payable forSale(_sku) paidEnough(items[_sku].price) checkValue(_sku) {
+        items[_sku].buyer = msg.sender;
+        items[_sku].state = State.Sold;
+        items[_sku].seller.transfer(items[_sku].price);
         
-        emit LogItemSold(sku);
+        emit LogItemSold(_sku);
     }
 
-    function transferItem(uint _sku) public sold(sku) verifyCaller(items[sku].seller) {
-        items[sku].state = State.Transferred;
+    function transferItem(uint _sku) public sold(sku) verifyCaller(items[_sku].seller) {
+        items[_sku].state = State.Transferred;
 
-        emit LogItemTransferred(sku);
+        emit LogItemTransferred(_sku);
     }
 
-    function receiveItem(uint _sku) public transferred(sku) verifyCaller(items[sku].buyer) {
-        items[sku].state = State.Received;
+    function receiveItem(uint _sku) public transferred(_sku) verifyCaller(items[_sku].buyer) {
+        items[_sku].state = State.Received;
 
-        emit LogItemReceived(sku);
+        emit LogItemReceived(_sku);
     }
 
     function fetchItemName(uint _sku) public view returns (string memory name) {
@@ -172,6 +174,10 @@ contract Jaslist {
     function itemNotForSale(uint _sku) public {
         items[_sku].state = State.NotForSale;
     }
+
+    // function getItemsByOwner {
+
+    // }
 
 }
 

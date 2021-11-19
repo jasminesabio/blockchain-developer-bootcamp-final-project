@@ -4,7 +4,7 @@ import Web3 from 'web3'
 import './App.css';
 import Jaslist from '../abis/Jaslist.json'
 import Navbar from './Navbar'
-// import Main from './Main'
+import Main from './Main'
 
 class App extends Component {
 
@@ -52,6 +52,14 @@ class App extends Component {
     }
   }
 
+  addItem(name, description, price) {
+    this.state.loading({ loading: true })
+    this.state.jaslist.methods.createItem(name, description, price).send({ from: this.state.account })
+    .once('receipt', (receipt) => {
+      this.setState({ loading: false })
+    })
+  }
+
   render() {
     return (
       <div>
@@ -59,9 +67,11 @@ class App extends Component {
         <div className="container-fluid mt-5">
           <div className="row">
             <main role="main" className="col-lg-12 d-flex">
-              <div id="content">
-                <h1>Add Product</h1>
-               </div>
+                { this.state.loading 
+                ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div> 
+                : <Main account={this.state.account} />
+                }
+              {/* <Main /> */}
             </main>
           </div>
         </div>  

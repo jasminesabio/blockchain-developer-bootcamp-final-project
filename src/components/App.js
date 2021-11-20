@@ -36,7 +36,17 @@ class App extends Component {
     if(networkData) {
       const jaslist = web3.eth.Contract(Jaslist.abi, networkData.address)
       this.setState({ jaslist })
-      this.setState({ loading: false })
+      const itemCount = await jaslist.methods.itemCount().call()
+      this.setState({ itemCount })
+      // Load products
+      for (var i = 1; i <= itemCount; i++) {
+        const item = await jaslist.methods.items(i).call()
+        this.setState({
+          items: [...this.state.items, item]
+        })
+      }
+      this.setState({ loading: false})
+      // console.log(this.state.items)
     } else {
       window.alert('Jaslist contract not deployed to detected network.')
     }
@@ -46,15 +56,26 @@ class App extends Component {
     super(props)
     this.state = {
       account: '',
-      productCount: 0,
-      products: [],
+      itemCount: 0,
+      items: [],
       loading: true
     }
+
+    this.addItem = this.addItem.bind(this)
+    this.buyItem = this.buyItem.bind(this)
   }
 
   addItem(name, description, price) {
-    this.state.loading({ loading: true })
-    this.state.jaslist.methods.createItem(name, description, price).send({ from: this.state.account })
+    this.setState({ loading: true })
+    this.state.jaslist.methods.addItem(name, description, price).send({ from: this.state.account })
+    .once('receipt', (receipt) => {
+      this.setState({ loading: false })
+    })
+  }
+
+  buyItem(id, price) {
+    this.setState({ loading: true })
+    this.state.jaslist.methods.buyItem(id).send({ from: this.state.account, value: price })
     .once('receipt', (receipt) => {
       this.setState({ loading: false })
     })
@@ -67,14 +88,16 @@ class App extends Component {
         <div className="container-fluid mt-5">
           <div className="row">
             <main role="main" className="col-lg-12 d-flex">
-                { this.state.loading 
-                ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div> 
-                : <Main account={this.state.account} />
-                }
-              {/* <Main /> */}
+              { this.state.loading
+                ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div>
+                : <Main
+                  items={this.state.items}
+                  addItem={this.addItem}
+                  buyItem={this.buyItem} />
+              }
             </main>
           </div>
-        </div>  
+        </div>
       </div>
     );
   }

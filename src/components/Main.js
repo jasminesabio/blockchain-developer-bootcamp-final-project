@@ -59,7 +59,7 @@ class Main extends Component {
             { this.props.items.map((item, key) => {
               return(
                 <tr key={key}>
-                  {/* <th scope="row">{item.id.toString()}</th> */}
+                  <th scope="row">{item.sku.toString()}</th>
                   <td>{item.name}</td>
                   <td>{item.description}</td>
                   <td>{window.web3.utils.fromWei(item.price.toString(), 'Ether')} Eth</td>
@@ -67,10 +67,11 @@ class Main extends Component {
                   <td>
                     { !item.purchased
                       ? <button
-                          name={item.id}
+                          name={item.sku}
                           value={item.price}
                           onClick={(event) => {
                             this.props.buyItem(event.target.name, event.target.value)
+                            window.location.reload()
                           }}
                         >
                           Buy

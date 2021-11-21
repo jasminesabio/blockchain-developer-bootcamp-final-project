@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Web3 from 'web3'
-// import logo from '../logo.png';
+import logo from '../logo.png';
 import './App.css';
 import Jaslist from '../abis/Jaslist.json'
 import Navbar from './Navbar'
@@ -87,7 +87,7 @@ class App extends Component {
         <Navbar account={this.state.account} />
         <div className="container-fluid mt-5">
           <div className="row">
-            <main role="main" className="col-lg-12 d-flex">
+          <img src={logo} className="App-logo" alt="logo" class="center"/>            <main role="main" className="col-lg-12 d-flex">
               { this.state.loading
                 ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div>
                 : <Main

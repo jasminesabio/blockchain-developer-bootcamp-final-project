@@ -11,6 +11,7 @@ class App extends Component {
   async componentWillMount() {
     await this.loadWeb3()
     await this.loadBlockchainData()
+    await this.detectAccountChange()
   }
 
   async loadWeb3() {
@@ -52,6 +53,20 @@ class App extends Component {
     }
   }
 
+  detectAccountChange() {
+    const ethereum = window.ethereum
+    
+    if(ethereum) {
+      ethereum.on('accountsChanged', function (accounts) {
+        console.log(accounts[0])
+        // this.setState({ loading: false})
+        window.location.reload()
+      })
+    }
+  }
+
+  
+
   constructor(props) {
     super(props)
     this.state = {
@@ -68,16 +83,18 @@ class App extends Component {
   addItem(name, description, price) {
     this.setState({ loading: true })
     this.state.jaslist.methods.addItem(name, description, price).send({ from: this.state.account })
-    .once('receipt', (receipt) => {
+    .once('confirmation', (confirmation) => {
       this.setState({ loading: false })
+      window.location.reload()
     })
   }
 
   buyItem(id, price) {
     this.setState({ loading: true })
     this.state.jaslist.methods.buyItem(id).send({ from: this.state.account, value: price })
-    .once('receipt', (receipt) => {
+    .once('confirmation', (confirmation) => {
       this.setState({ loading: false })
+      window.location.reload()
     })
   }
 

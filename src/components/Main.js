@@ -71,7 +71,6 @@ class Main extends Component {
                           value={item.price}
                           onClick={(event) => {
                             this.props.buyItem(event.target.name, event.target.value)
-                            window.location.reload()
                           }}
                         >
                           Buy

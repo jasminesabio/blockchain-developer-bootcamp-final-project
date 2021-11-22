@@ -1,17 +1,20 @@
-pragma solidity >=0.5.16 <0.9.0;
+pragma solidity >=0.5.16 ^0.8.0;
 
 // update updateItemPrice to use verifyCaller as modifier
 // if implementing ERC721 standard what functions will functions need to be omitted?
 // how to remove item?
 // need to declare state arrays?
 
-contract Jaslist {
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract Jaslist is Ownable {
 
     // admin can open/close Jaslist; will receive unused eth if closed
     // address public admin;
 
-    address owner;
-    uint public itemCount; 
+    // address owner;
+    uint public itemCount;
+    bool internal locked;
 
     mapping (uint => Item) public items;
     mapping (uint => address) itemToOwner; //maps item to owner
@@ -29,7 +32,7 @@ contract Jaslist {
         string description;
         uint sku;
         uint price;
-        address payable owner;
+        address payable itemOwner;
         bool purchased;
     }
     
@@ -46,8 +49,8 @@ contract Jaslist {
 
     // State public state;
     
-    constructor() public {
-        owner = msg.sender;
+    constructor() {
+        // owner = msg.sender;
         itemCount = 0;
     }
 
@@ -56,7 +59,7 @@ contract Jaslist {
         string description,
         uint sku,
         uint price,
-        address payable owner,
+        address payable itemOwner,
         bool purchased
     );
 
@@ -65,7 +68,7 @@ contract Jaslist {
         string description,
         uint sku,
         uint price,
-        address payable owner,
+        address payable itemOwner,
         bool purchased
     );
 
@@ -77,6 +80,13 @@ contract Jaslist {
     //     _;
     // }
 
+    modifier noReentrant() {
+        require(!locked, "No re-entrancy");
+        locked = true;
+        _;
+        locked = false;
+    }
+    
     modifier paidEnough(uint _price) {
         require(msg.value >= _price);
         _;
@@ -123,20 +133,18 @@ contract Jaslist {
             description: _description,
             sku: itemCount,
             price: _price,
-            owner: msg.sender,
+            itemOwner: payable(msg.sender),
             purchased: false
         });
         
-        emit LogItemAdded(_name, _description, items[itemCount].sku, _price, items[itemCount].owner, items[itemCount].purchased);
+        emit LogItemAdded(_name, _description, items[itemCount].sku, _price, items[itemCount].itemOwner, items[itemCount].purchased);
 
         return true;
     }
     
-    
-    // test this function; dapp university 1:08:54
-    function buyItem(uint _sku) public payable paidEnough(items[_sku].price) {
+    function buyItem(uint _sku) public payable paidEnough(items[_sku].price) noReentrant() {
         
-        address payable _seller = items[_sku].owner;
+        address payable _seller = items[_sku].itemOwner;
         
         require(_sku >= 0 && _sku <= itemCount);
         require(items[_sku].purchased == false);
@@ -144,10 +152,10 @@ contract Jaslist {
         
         _seller.transfer(items[_sku].price);
 
-        items[_sku].owner = msg.sender;
+        items[_sku].itemOwner = payable(msg.sender);
         items[_sku].purchased = true;
         
-        emit LogItemSold(items[_sku].name, items[_sku].description, items[_sku].sku, items[_sku].price, items[_sku].owner, items[_sku].purchased);
+        emit LogItemSold(items[_sku].name, items[_sku].description, items[_sku].sku, items[_sku].price, items[_sku].itemOwner, items[_sku].purchased);
     }
 
     // function transferItem(uint _sku) public sold(_sku) {

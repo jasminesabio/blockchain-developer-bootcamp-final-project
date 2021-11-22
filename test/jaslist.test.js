@@ -40,7 +40,7 @@ contract('Jaslist', ([deployer, seller, buyer]) => {
             // // assert.equal(itemCount.toNumber(), 1);
             // assert.equal(itemAddedData.sku.toNumber(), itemCount.toNumber(), "sku is not correct")
             assert.equal(itemAddedData.name, "test", "name is not correct");
-            assert.equal(itemAddedData.owner, seller, "owner is not correct");
+            assert.equal(itemAddedData.itemOwner, seller, "item owner is not correct");
 
             //Failure:
             // await jaslist.addItem("", "test description", web3.utils.toWei('1', 'Ether'), { from: seller }).should.be.rejected;
@@ -68,7 +68,7 @@ contract('Jaslist', ([deployer, seller, buyer]) => {
             const itemSoldData = purchase.logs[0].args;
             // console.log(itemSoldData);
             assert.equal(itemSoldData.name, "test", "name is not correct");
-            assert.equal(itemSoldData.owner, buyer, "owner is not correct");
+            assert.equal(itemSoldData.itemOwner, buyer, "item owner is not correct");
 
             let newSellerBalance;
             newSellerBalance = await web3.eth.getBalance(seller);

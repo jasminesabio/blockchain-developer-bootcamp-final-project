@@ -40,7 +40,7 @@ class Main extends Component {
               placeholder="Item Price"
               required />
           </div>
-          <button type="submit" className="btn btn-primary">Add Item</button>
+          <button type="submit" className="btn btn-primary" class="aesthetic-windows-95-button">Add Item</button>
         </form>
         <p>&nbsp;</p>
         <h2>Buy Item</h2>
@@ -67,6 +67,7 @@ class Main extends Component {
                   <td>
                     { !item.purchased
                       ? <button
+                          class="aesthetic-windows-95-button"
                           name={item.sku}
                           value={item.price}
                           onClick={(event) => {

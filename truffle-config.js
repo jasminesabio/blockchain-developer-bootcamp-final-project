@@ -8,5 +8,15 @@ module.exports = {
     develop: {
       port: 7545
     }
-  }
+  },
+
+  compilers: {
+    solc: {
+      // default is 0.5.16
+      version: ">=0.5.16 ^0.8.0",    // Fetch exact version from solc-bin (default: truffle's version)
+    
+      }
+    }
+
+  
 };

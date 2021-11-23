@@ -102,9 +102,10 @@ class App extends Component {
     return (
       <div>
         <Navbar account={this.state.account} />
-        <div className="container-fluid mt-5">
-          <div className="row">
-          <img src={logo} className="App-logo" alt="logo" class="center"/>            <main role="main" className="col-lg-12 d-flex">
+        <div className="container-fluid mt-5" >
+          <div className="row" class="container aesthetic-windows-95-container">
+          <img src={logo} className="App-logo" alt="logo" class="center-logo"/>           
+          <main role="main" className="col-lg-12 d-flex">
               { this.state.loading
                 ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div>
                 : <Main

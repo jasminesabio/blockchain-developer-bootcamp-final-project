@@ -1,9 +1,20 @@
 /* Styles go here */
-/* .center {
+.center-logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 25%;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+  }
+
+  /* .main {
+    background-color: aesthetic-light-blue;
   } */
 
   .aesthetic-bg-gradient {

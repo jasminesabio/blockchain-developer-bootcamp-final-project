@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
+import ticket from '../ticket.png';
 
 class Main extends Component {
 
   render() {
     return (
-      <div id="content">
+      <div id="content" class="center">
           <div class="aesthetic-windows-95-modal">
             <div class="aesthetic-windows-95-modal-title-bar">
               <div class="aesthetic-windows-95-modal-title-bar-text">
-                SELL ITEM
+                SELL TICKET
               </div>
 
               <div class="aesthetic-windows-95-modal-title-bar-controls">
                 <div class="aesthetic-windows-95-button-title-bar">
-                  <button>
-                    X
-                  </button>
+                  <button>X</button>
                 </div>
               </div>
             </div> &nbsp;
@@ -35,7 +34,7 @@ class Main extends Component {
                     type="text"
                     ref={(input) => { this.itemName = input }}
                     className="form-control"
-                    placeholder="Item Name"
+                    placeholder="Event Name"
                     required />
                 </div> 
                 <div className="form-group mr-sm-2">
@@ -44,7 +43,7 @@ class Main extends Component {
                     type="text"
                     ref={(input) => { this.itemDescription = input }}
                     className="form-control"
-                    placeholder="Item Description"
+                    placeholder="Event Description"
                     required />
                 </div>
                 <div className="form-group mr-sm-2">
@@ -53,7 +52,7 @@ class Main extends Component {
                     type="text"
                     ref={(input) => { this.itemPrice = input }}
                     className="form-control"
-                    placeholder="Item Price"
+                    placeholder="Price"
                     required />
                 </div>
                 <button type="submit" className="btn btn-primary" class="aesthetic-windows-95-button">Sell Ticket</button>
@@ -62,7 +61,41 @@ class Main extends Component {
             </div>
           </div>
         &nbsp;
-        <h2>Buy Item</h2>
+
+
+        <div className="wrapper">
+          { this.props.items.map((item, key) => {
+            return(
+              <div className="card" key={key}>
+                <div className="card__body">
+                  <img src={ticket} className="Ticket-logo" alt="ticket" class="card__image"></img>
+                  <h4 className="card__title">{item.name}</h4>
+                  <h5 className="card__description">{item.description}</h5>
+                  {/* <h5 className="card__description">Price: {window.web3.utils.fromWei(item.price.toString(), 'Ether')} Eth</h5> */}
+                  <p className="card__description">Owner: {item.itemOwner}</p>
+                  <p>
+                    { !item.purchased
+                      ? <button
+                          class="aesthetic-windows-95-button center"
+                          name={item.sku}
+                          value={item.price}
+                          onClick={(event) => {
+                          this.props.buyItem(event.target.name, event.target.value)
+                          }}
+                          >
+                            Buy: {window.web3.utils.fromWei(item.price.toString(), 'Ether')} Eth
+                          </button>
+                          : null
+                          }
+                        </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+        &nbsp;        
+
+        {/* <h2>Buy Item</h2>
         <table className="table">
           <thead>
             <tr>
@@ -102,7 +135,7 @@ class Main extends Component {
               )
             })}
           </tbody>
-        </table>
+        </table> */}
       </div>
     );
   }

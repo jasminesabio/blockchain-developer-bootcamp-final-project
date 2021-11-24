@@ -107,7 +107,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" class="center-logo"/>           
           <main role="main" className="col-lg-12 d-flex">
               { this.state.loading
-                ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div>
+                ? <div id="loader" class="aesthetic-windows-95-boot-loader"><p className="text-center">Loading...</p></div>
                 : <Main
                   items={this.state.items}
                   addItem={this.addItem}

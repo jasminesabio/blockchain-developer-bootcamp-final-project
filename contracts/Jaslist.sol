@@ -106,6 +106,12 @@ contract Jaslist is Pausable, Ownable {
         _pause();
     }
 
+    function removeItem(uint _sku) public {
+        require(items[_sku].itemOwner == msg.sender);
+        delete items[_sku];
+        items[_sku].name = "ticket unavailable";
+    }
+
     // function updateItemPrice(uint _sku, uint _price) public isOwner {
     //     items[_sku].price = _price;
     // }

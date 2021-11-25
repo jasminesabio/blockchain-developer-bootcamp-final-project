@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Web3 from 'web3'
-import logo from '../logo.png';
+import logo from './logo.png';
 import './App.css';
-import Jaslist from '../abis/Jaslist.json'
+import Jaslist from './Jaslist.json'
 import Navbar from './Navbar'
 import Main from './Main'
 
@@ -52,7 +52,7 @@ class App extends Component {
       window.alert('Jaslist contract not deployed to detected network.')
     }
   }
-
+npm 
   detectAccountChange() {
     const ethereum = window.ethereum
     
@@ -102,7 +102,7 @@ class App extends Component {
     return (
       <div>
         <Navbar account={this.state.account} />
-        <div className="container-fluid mt-5" >
+        <div className="container-fluid mt-5">
           <div className="row" class="container aesthetic-windows-95-container">
           <img src={logo} className="App-logo" alt="logo" class="center-logo"/>           
           <main role="main" className="col-lg-12 d-flex">
@@ -116,6 +116,7 @@ class App extends Component {
             </main>
           </div>
         </div>
+        &nbsp;
       </div>
     );
   }

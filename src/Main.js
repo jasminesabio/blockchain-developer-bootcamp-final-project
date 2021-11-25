@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import ticket from '../ticket.png';
+import ticket from './ticket.png';
 
 class Main extends Component {
 

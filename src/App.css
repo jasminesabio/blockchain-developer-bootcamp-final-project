@@ -61,9 +61,10 @@
 
 
   .aesthetic-bg-gradient {
+    background: linear-gradient(to bottom right, #C774E8, #94D0FF);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background: linear-gradient(#C774E8, #94D0FF); }
+  }
   
   .aesthetic-white-color {
     color: #FAFAFA; }

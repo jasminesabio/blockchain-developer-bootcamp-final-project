@@ -58,9 +58,13 @@ npm
     
     if(ethereum) {
       ethereum.on('accountsChanged', function (accounts) {
-        console.log(accounts[0])
         // this.setState({ loading: false})
         window.location.reload()
+      })
+
+      ethereum.on('chainChanged', () => {
+        window.location.reload()
+        this.loadBlockchainData()
       })
     }
   }

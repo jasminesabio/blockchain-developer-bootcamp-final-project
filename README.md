@@ -32,14 +32,14 @@ Requirements: Metamask browser extension installed and connected to the Rinkeby 
 In the terminal, clone the project repository/
 `git clone https://github.com/jasminesabio/blockchain-developer-bootcamp-final-project`
 
-In the terminal in the root directory of the project, install the dependecies/
+In the terminal in the root directory of the project, install the dependecies\
 `npm install`
 
 Set up a local blockchain by opening up Ganache and quickstart a blockchain. In the terminal, run/
 `truffle compile`
 `truffle migrate`
 
-To run the javascript tests, run/
+To run the javascript tests, run\
 `truffle test`
 
 ## Next Steps

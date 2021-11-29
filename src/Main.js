@@ -76,7 +76,7 @@ class Main extends Component {
                   <p>
                     { !item.purchased
                       ? <button
-                          class="aesthetic-windows-95-button center"
+                          class="aesthetic-windows-95-button center btn"
                           name={item.sku}
                           value={item.price}
                           onClick={(event) => {

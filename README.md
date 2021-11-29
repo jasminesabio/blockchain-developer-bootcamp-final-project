@@ -12,19 +12,20 @@ Jaslist Ticket Marketplace dApp will allow users to buy or sell tickets and can 
 
 ### dApp Walkthrough
 
-### Installing dApp Locally
+## Installing dApp Locally
 [Jaslist Github Repo](https://github.com/jasminesabio/blockchain-developer-bootcamp-final-project)
 
 ## Development Environment Set Up to Run Project Locally (macOS or Linux System)
-- Download a Code Editor
+- Download a Code Editor (Visual Studio Code, Sublime, etc)
 - Install Homebrew
+    '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
 - Install Node
 - Install Git
 - Install Truffle
 - Download Ganache GUI
 - Install Metamask browser extension
 
-## Running the Project Locally
+### Running the Project Locally
 In the terminal, clone the project repository 'git clone XXX' and open up the root file in a code editor. In the terminal in the root directory of the project, run 'npm install' to install the dependecies. 
 
 Set up a local blockchain by opening up Ganache and quickstart a blockchain. In the terminal, run 'truffle compile' then run 'truffle migrate'. Run 'truffle test' to run the javascript tests. 

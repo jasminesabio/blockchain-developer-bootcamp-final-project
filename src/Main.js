@@ -83,7 +83,7 @@ class Main extends Component {
                           this.props.buyItem(event.target.name, event.target.value)
                           }}
                           >
-                            Buy: {window.web3.utils.fromWei(item.price.toString(), 'Ether')} Eth
+                            Buy: {window.web3.utils.fromWei(item.price.toString(), 'Ether')} ETH
                           </button>
                           : null
                           }

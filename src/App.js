@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Web3 from 'web3'
 import logo from './logo.png';
 import './App.css';
-import Jaslist from './Jaslist.json'
+import Jaslist from './abis/Jaslist.json'
 import Navbar from './Navbar'
 import Main from './Main'
 

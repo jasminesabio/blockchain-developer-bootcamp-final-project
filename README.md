@@ -1,4 +1,5 @@
 # Jaslist Ticket Marketplace dApp
+![Jaslist homepage](jaslist_homepage.png)
 
 ## Overview
 ### Problem
@@ -13,6 +14,9 @@ Jaslist Ticket Marketplace dApp will allow users to buy or sell tickets and can 
 Requirements: Metamask browser extension installed and connected to the Rinkeby Test Network
 
 ### dApp Walkthrough
+
+### Directory Structure
+
 
 ## Installing dApp Locally
 ## Development Environment Set Up to Run Project Locally (macOS or Linux System)
@@ -50,8 +54,8 @@ To run the javascript tests, run\
 - [x] Inherits from one library (Open Zeppelin)\
 - [x] Can be easily compiled and tested locally\
 - [x] Contains markdown files named design_pattern_decisions.md and avoiding_common_attacks.md\
-- [] Have at least five unit tests for the smart contract\
-- [] Contain a deployed_address.txt file\
+- [x] Have at least five unit tests for the smart contract\
+- [x] Contain a deployed_address.txt file\
 - [x] Have a front end interface that detects metamask, connect to the current account, displays infomration from the smart contract, allows a user to submit a transaction and update smart contract state, and updated frontend if transaction is successful or not\
 - [x] Hosted on Netlify\
 - [x] Clear instructions in README.md file to install dependencies, access and run project, and running smart contract unit tests\

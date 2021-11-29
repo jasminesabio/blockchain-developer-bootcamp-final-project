@@ -56,7 +56,7 @@ class Main extends Component {
                     required />
                 </div>
                 <button type="submit" className="btn btn-primary" class="aesthetic-windows-95-button">Sell Ticket</button>
-              </form>        
+              </form>       
               </div>
             </div>
           </div>
@@ -67,16 +67,15 @@ class Main extends Component {
           { this.props.items.map((item, key) => {
             return(
               <div className="card" key={key}>
-                <div className="card__body">
-                  <img src={ticket} className="Ticket-logo" alt="ticket" class="card__image"></img>
-                  <h4 className="card__title">{item.name}</h4>
-                  <h5 className="card__description">{item.description}</h5>
-                  {/* <h5 className="card__description">Price: {window.web3.utils.fromWei(item.price.toString(), 'Ether')} Eth</h5> */}
-                  <p className="card__description">Owner: {item.itemOwner}</p>
+                <div className="card-body">
+                  <img src={ticket} className="Ticket-logo" alt="ticket" class="card-image"></img>
+                  <h4 className="card-title">{item.name}</h4>
+                  <h5 className="card-description">{item.description}</h5>
+                  <p className="card-description">Owner: {item.itemOwner}</p>
                   <p>
                     { !item.purchased
                       ? <button
-                          class="aesthetic-windows-95-button center btn"
+                          class="aesthetic-windows-95-button center"
                           name={item.sku}
                           value={item.price}
                           onClick={(event) => {

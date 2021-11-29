@@ -10,6 +10,8 @@ Jaslist Ticket Marketplace dApp will allow users to buy or sell tickets and can 
 ### Live dApp Deployed on Rinkeby
 [Jaslist](https://jaslist.netlify.app/)
 
+Requirements: Metamask browser extension installed and connected to the Rinkeby Test Network
+
 ### dApp Walkthrough
 
 ## Installing dApp Locally
@@ -19,16 +21,25 @@ Jaslist Ticket Marketplace dApp will allow users to buy or sell tickets and can 
 1. Download a Code Editor (Visual Studio Code, Sublime, etc)
 2. Install Homebrew\
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-3. Install Node
-- Install Git\
+3. Install [Node](https://nodejs.org/en/)
+4. Install Git\
 `brew install git`
-- Install Truffle
-- Download Ganache GUI
-- Install Metamask browser extension
+5. Install Truffle\
+`npm install -g truffle`
+6. Download [Ganache GUI](https://www.trufflesuite.com/ganache)
 
 ### Running the Project Locally
-In the terminal, clone the project repository 'git clone XXX' and open up the root file in a code editor. In the terminal in the root directory of the project, run 'npm install' to install the dependecies. 
+In the terminal, clone the project repository/
+`git clone https://github.com/jasminesabio/blockchain-developer-bootcamp-final-project`
 
-Set up a local blockchain by opening up Ganache and quickstart a blockchain. In the terminal, run 'truffle compile' then run 'truffle migrate'. Run 'truffle test' to run the javascript tests. 
+In the terminal in the root directory of the project, install the dependecies/
+`npm install`
+
+Set up a local blockchain by opening up Ganache and quickstart a blockchain. In the terminal, run/
+`truffle compile`
+`truffle migrate`
+
+To run the javascript tests, run/
+`truffle test`
 
 ## Next Steps

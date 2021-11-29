@@ -40,4 +40,31 @@ Set up a local blockchain by opening up Ganache and quickstart a blockchain. In 
 To run the javascript tests, run\
 `truffle test`
 
+## Project Requirements
+[x] Following this naming format: https://github.com/YOUR_GITHUB_USERNAME_HERE/blockchain-developer-bootcamp-final-project
+[x] Contain a README.md file which describes the project, describes the directory structure, and where the frontend project can be accessed
+[] Include public Ethereum account to receive certification as a NFT
+[x] Smart contract is commented to the NatSpec format
+[x] Uses two design patterns (inherits and restricts access)
+[x] Protects against two attack vectors (no-reentrancy and proper use of require)
+[x] Inherits from one library (Open Zeppelin)
+[x] Can be easily compiled and tested locally
+[x] Contains markdown files named design_pattern_decisions.md and avoiding_common_attacks.md
+[] Have at least five unit tests for the smart contract
+[] Contain a deployed_address.txt file
+[x] Have a front end interface that detects metamask, connect to the current account, displays infomration from the smart contract, allows a user to submit a transaction and update smart contract state, and updated frontend if transaction is successful or not
+[x] Hosted on Netlify
+[x] Clear instructions in README.md file to install dependencies, access and run project, and running smart contract unit tests
+[] Screencast of project walkthrough
+
+
 ## Next Steps
+- Implement tickets listed as ERC-721 tokens
+- Add functionality for sellers (update ticket price, remove ticket from tickets available to be sold)
+- Integrate off-chain ticket transfer
+- Fetch list of tickets owned by user
+- Sort listed ticket items and add filtering functionality
+- Add dynamic images for each ticket
+
+## Public Ethereum Account
+0x30122B923E559E4E1A6bf560518B132AeB455BC9

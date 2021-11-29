@@ -16,9 +16,8 @@ Jaslist Ticket Marketplace dApp will allow users to buy or sell tickets and can 
 [Jaslist Github Repo](https://github.com/jasminesabio/blockchain-developer-bootcamp-final-project)
 
 ## Development Environment Set Up to Run Project Locally (macOS or Linux System)
-- Download a Code Editor (Visual Studio Code, Sublime, etc)
-- Install Homebrew
-
+1. Download a Code Editor (Visual Studio Code, Sublime, etc)
+2. Install Homebrew
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 - Install Node
 - Install Git

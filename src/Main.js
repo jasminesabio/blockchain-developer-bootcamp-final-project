@@ -43,7 +43,7 @@ class Main extends Component {
                     type="text"
                     ref={(input) => { this.itemDescription = input }}
                     className="form-control"
-                    placeholder="Event Description"
+                    placeholder="Event Description (Location, Date)"
                     required />
                 </div>
                 <div className="form-group mr-sm-2">
@@ -52,7 +52,7 @@ class Main extends Component {
                     type="text"
                     ref={(input) => { this.itemPrice = input }}
                     className="form-control"
-                    placeholder="Price"
+                    placeholder="Price (in ETH)"
                     required />
                 </div>
                 <button type="submit" className="btn btn-primary" class="aesthetic-windows-95-button">Sell Ticket</button>

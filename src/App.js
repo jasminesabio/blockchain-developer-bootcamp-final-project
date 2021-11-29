@@ -88,7 +88,7 @@ npm
     this.setState({ loading: true })
     this.state.jaslist.methods.addItem(name, description, price).send({ from: this.state.account })
     .once('confirmation', (confirmation) => {
-      this.setState({ loading: false })
+      // this.setState({ loading: false })
       window.location.reload()
     })
   }
@@ -97,7 +97,8 @@ npm
     this.setState({ loading: true })
     this.state.jaslist.methods.buyItem(id).send({ from: this.state.account, value: price })
     .once('confirmation', (confirmation) => {
-      this.setState({ loading: false })
+      window.alert('Transaction successful.')
+      // this.setState({ loading: false })
       window.location.reload()
     })
   }

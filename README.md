@@ -16,38 +16,43 @@ Requirements: Metamask browser extension installed and connected to the Rinkeby 
 ### dApp Walkthrough
 
 ### Directory Structure
-
+- `contracts/` directory of smart contracts
+- `migrations/` directory of migration files
+- `public/` front end files
+- `reference_docs/` markdown files required for project submission
+- `src/` directory of abis and frontend react files
+- `test/` directory of unit tests for smart contract
 
 ## Installing dApp Locally
 ### Development Environment Set Up to Run Project Locally (macOS or Linux System)
 1. Download a Code Editor (Visual Studio Code, Sublime, etc)
-2. Install Homebrew\
+2. Install Homebrew
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 3. Install [Node](https://nodejs.org/en/)
-4. Install Git\
+4. Install Git
 ```
 brew install git
 ```
-5. Install Truffle\
+5. Install Truffle
 ```
 npm install -g truffle`
 ```
 6. Download [Ganache GUI](https://www.trufflesuite.com/ganache)
 
 ### Running the Project Locally
-In the terminal, clone the project repository\
+In the terminal, clone the project repository
 ```
 git clone https://github.com/jasminesabio/blockchain-developer-bootcamp-final-project
 ```
 
-In the terminal in the root directory of the project, install the dependecies\
+In the terminal in the root directory of the project, install the dependecies
 ```
 npm install
 ```
 
-Set up a local blockchain by opening up Ganache and quickstart a blockchain. In the terminal, run\
+Set up a local blockchain by opening up Ganache and quickstart a blockchain. In the terminal, run
 ```
 truffle compile
 ```
@@ -55,7 +60,7 @@ truffle compile
 truffle migrate
 ```
 
-To run the javascript tests, run\
+To run the javascript tests, run
 ```
 truffle test
 ```

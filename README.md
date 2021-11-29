@@ -27,24 +27,38 @@ Requirements: Metamask browser extension installed and connected to the Rinkeby 
 ```
 3. Install [Node](https://nodejs.org/en/)
 4. Install Git\
-`brew install git`
+```
+brew install git
+```
 5. Install Truffle\
-`npm install -g truffle`
+```
+npm install -g truffle`
+```
 6. Download [Ganache GUI](https://www.trufflesuite.com/ganache)
 
 ### Running the Project Locally
 In the terminal, clone the project repository\
-`git clone https://github.com/jasminesabio/blockchain-developer-bootcamp-final-project`
+```
+git clone https://github.com/jasminesabio/blockchain-developer-bootcamp-final-project
+```
 
 In the terminal in the root directory of the project, install the dependecies\
-`npm install`
+```
+npm install
+```
 
 Set up a local blockchain by opening up Ganache and quickstart a blockchain. In the terminal, run\
-`truffle compile`\
-`truffle migrate`
+```
+truffle compile
+```
+```
+truffle migrate
+```
 
 To run the javascript tests, run\
-`truffle test`
+```
+truffle test
+```
 
 ## Project Requirements
 - [x] Following this naming format: https://github.com/YOUR_GITHUB_USERNAME_HERE/blockchain-developer-bootcamp-final-project \

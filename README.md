@@ -19,10 +19,12 @@ Requirements: Metamask browser extension installed and connected to the Rinkeby 
 
 
 ## Installing dApp Locally
-## Development Environment Set Up to Run Project Locally (macOS or Linux System)
+### Development Environment Set Up to Run Project Locally (macOS or Linux System)
 1. Download a Code Editor (Visual Studio Code, Sublime, etc)
 2. Install Homebrew\
-`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 3. Install [Node](https://nodejs.org/en/)
 4. Install Git\
 `brew install git`

@@ -15,8 +15,6 @@ Requirements: Metamask browser extension installed and connected to the Rinkeby 
 ### dApp Walkthrough
 
 ## Installing dApp Locally
-[Jaslist Github Repo](https://github.com/jasminesabio/blockchain-developer-bootcamp-final-project)
-
 ## Development Environment Set Up to Run Project Locally (macOS or Linux System)
 1. Download a Code Editor (Visual Studio Code, Sublime, etc)
 2. Install Homebrew\
@@ -29,7 +27,7 @@ Requirements: Metamask browser extension installed and connected to the Rinkeby 
 6. Download [Ganache GUI](https://www.trufflesuite.com/ganache)
 
 ### Running the Project Locally
-In the terminal, clone the project repository/
+In the terminal, clone the project repository\
 `git clone https://github.com/jasminesabio/blockchain-developer-bootcamp-final-project`
 
 In the terminal in the root directory of the project, install the dependecies\

@@ -41,7 +41,7 @@ To run the javascript tests, run\
 `truffle test`
 
 ## Project Requirements
-[x] Following this naming format: https://github.com/YOUR_GITHUB_USERNAME_HERE/blockchain-developer-bootcamp-final-project\
+[x] Following this naming format: https://github.com/YOUR_GITHUB_USERNAME_HERE/blockchain-developer-bootcamp-final-project \
 [x] Contain a README.md file which describes the project, describes the directory structure, and where the frontend project can be accessed\
 [x] Include public Ethereum account to receive certification as a NFT\
 [x] Smart contract is commented to the NatSpec format\

@@ -17,10 +17,11 @@ Jaslist Ticket Marketplace dApp will allow users to buy or sell tickets and can 
 
 ## Development Environment Set Up to Run Project Locally (macOS or Linux System)
 1. Download a Code Editor (Visual Studio Code, Sublime, etc)
-2. Install Homebrew
+2. Install Homebrew\
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-- Install Node
-- Install Git
+3. Install Node
+- Install Git\
+`brew install git`
 - Install Truffle
 - Download Ganache GUI
 - Install Metamask browser extension

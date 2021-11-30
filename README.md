@@ -38,9 +38,9 @@ brew install git
 ```
 npm install -g truffle`
 ```
-6. Download or install Ganache
-[Ganache GUI](https://www.trufflesuite.com/ganache)
-Ganache CLI:
+6. Download or install Ganache\
+Download [Ganache GUI](https://www.trufflesuite.com/ganache)\
+or install Ganache CLI:
 ```
 npm install -g ganache-cli
 ```
@@ -85,7 +85,7 @@ To run the frontend locally, run
 npm run start
 ```
 
-Follow the instructions on this [post](https://medium.com/@kacharlabhargav21/using-ganache-with-remix-and-metamask-446fe5748ccf) to connect Ganache with Metamask. Once connected, you'll be able to interact witht the front-end of the dApp.
+Follow the instructions on this [post](https://medium.com/@kacharlabhargav21/using-ganache-with-remix-and-metamask-446fe5748ccf) to connect Ganache with Metamask. Once connected, you'll be able to interact with the front-end of the dApp.
 
 ## Project Requirements
 - [x] Following this naming format: https://github.com/YOUR_GITHUB_USERNAME_HERE/blockchain-developer-bootcamp-final-project \

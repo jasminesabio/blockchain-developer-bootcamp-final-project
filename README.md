@@ -75,7 +75,7 @@ npm run start
 - [x] Include public Ethereum account to receive certification as a NFT\
 - [x] Smart contract is commented to the NatSpec format\
 - [x] Uses two design patterns (inherits and restricts access)\
-- [x] Protects against two attack vectors (no-reentrancy and proper use of require)\
+- [x] Protects against two attack vectors (no-reentrancy (SWC-107) and proper use of require (SWC-123))\
 - [x] Inherits from one library (Open Zeppelin)\
 - [x] Can be easily compiled and tested locally\
 - [x] Contains markdown files named design_pattern_decisions.md and avoiding_common_attacks.md\
@@ -84,7 +84,7 @@ npm run start
 - [x] Have a front end interface that detects metamask, connect to the current account, displays infomration from the smart contract, allows a user to submit a transaction and update smart contract state, and updated frontend if transaction is successful or not\
 - [x] Hosted on Netlify\
 - [x] Clear instructions in README.md file to install dependencies, access and run project, and running smart contract unit tests\
-- [] Screencast of project walkthrough
+- [x] Screencast of project walkthrough
 
 
 ## Next Steps

@@ -3,15 +3,20 @@ const path = require("path");
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
   // to customize your Truffle configuration!
-  contracts_build_directory: path.join(__dirname, "client/src/contracts"),
+  contracts_build_directory: path.join(__dirname, "src/abis"),
   networks: {
     develop: {
-      port: 7545
+      host: 'localhost',
+      port: 7545,
+      network_id: '',
     },
 
     ganachecli: {
-      port: 8545
-    }
+      host: 'localhost',
+      port: 8545,
+      network_id: '*',
+    },
+
   },
 
   compilers: {

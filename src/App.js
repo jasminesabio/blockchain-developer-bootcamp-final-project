@@ -58,13 +58,11 @@ npm
     
     if(ethereum) {
       ethereum.on('accountsChanged', function (accounts) {
-        // this.setState({ loading: false})
         window.location.reload()
       })
 
       ethereum.on('chainChanged', () => {
         window.location.reload()
-        this.loadBlockchainData()
       })
     }
   }
@@ -108,11 +106,11 @@ npm
       <div class="aesthetic-bg-gradient aesthetic-font">
         <Navbar account={this.state.account} />
         <div className="container-fluid mt-5">
-          <div className="row" class="container aesthetic-windows-95-container">
-          <img src={logo} className="App-logo" alt="logo" class="center-logo"/>           
+          <div className="container aesthetic-windows-95-container">
+          <img src={logo} alt="logo" className="center-logo"/>           
           <main role="main" className="col-lg-12 d-flex">
               { this.state.loading
-                ? <div id="loader" class="aesthetic-windows-95-boot-loader">
+                ? <div id="loader" className="aesthetic-windows-95-boot-loader">
                   <p className="text-center">Loading...</p>
                   </div>
                 : <Main

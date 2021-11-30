@@ -7,6 +7,10 @@ module.exports = {
   networks: {
     develop: {
       port: 7545
+    },
+
+    ganachecli: {
+      port: 8545
     }
   },
 

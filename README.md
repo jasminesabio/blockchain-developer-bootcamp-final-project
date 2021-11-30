@@ -8,11 +8,11 @@ Second-hand ticket exchanges (for concerts, events, shows, etc.) are vulnerable 
 ### Solution
 Jaslist Ticket Marketplace dApp will allow users to buy or sell tickets and can engage in transactions where the ticket and money exchange are verified on the blockchain.
 
-### Live dApp Deployed on Rinkeby [Jaslist](https://jaslist.netlify.app/)
+### Live dApp Deployed on Rinkeby: [Jaslist](https://jaslist.netlify.app/)
 
 Requirements: Metamask browser extension installed and connected to the Rinkeby Test Network
 
-### dApp Walkthrough
+### dApp Walkthrough: [Jaslist Demo](https://www.loom.com/share/58bff5149fe349f0a0458167f144755d)
 
 ### Directory Structure
 - `contracts/` directory of smart contracts
@@ -62,6 +62,11 @@ truffle migrate
 To run the javascript tests, run
 ```
 truffle test
+```
+
+To run the frontend, run
+```
+npm run start
 ```
 
 ## Project Requirements
